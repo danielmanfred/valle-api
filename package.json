@@ -1,0 +1,37 @@
+{
+  "name": "valle-api",
+  "version": "1.0.0",
+  "description": "Node API RESTful project challenge of the Valle Company selection process.",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node src/index.js",
+    "local": "nodemon --exec babel-node src/index.js", 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielmanfred/valle-api.git"
+  },
+  "keywords": [
+    "node.js",
+    "mongodb",
+    "express",
+    "jwt"
+  ],
+  "author": "Daniel Brito",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielmanfred/valle-api/issues"
+  },
+  "homepage": "https://github.com/danielmanfred/valle-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.4.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
