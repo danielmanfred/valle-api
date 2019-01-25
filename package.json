@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/danielmanfred/valle-api#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
@@ -34,5 +35,10 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0"
+  },
+  "apidoc": { 
+    "name": "example",
+    "version": "0.1.0",
+    "description": "A basic apiDoc example"
   }
 }

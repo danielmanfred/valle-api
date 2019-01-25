@@ -1,4 +1,5 @@
 import repository from '../repositories/user'
+import bcrypt from 'bcrypt-nodejs'
 
 const getAllUsers = async (req, res) => {
     try {
@@ -6,7 +7,7 @@ const getAllUsers = async (req, res) => {
         res.json({ users })
     }
     catch (err) {
-        res.status(400).json({ error: err })
+        res.status(400).json({ error: err.message })
     }
 }
 
@@ -16,14 +17,16 @@ const getUserById = async (req, res) => {
         res.json({ user })
     }   
     catch (err) {
-        res.status(400).json({ error: err })
+        res.status(400).json({ error: err.message })
     }
 }
 
 const createUser = async (req, res) => {
     const { username, password, email } = req.body
+    const cryptpassword = bcrypt.hashSync(password)
     try {
-        const user = await repository.createUser({ username, password, email })
+        const user = await repository.createUser({ username, password: cryptpassword, email })
+        user.password = undefined
         res.status(201).json({ 
             message: 'User created successfully',
             user
@@ -32,7 +35,7 @@ const createUser = async (req, res) => {
     catch (err) {
         res.status(400).json({
             message: 'Failed to create user',
-            error: err
+            error: err.message
         })
     }
 }
@@ -40,14 +43,36 @@ const createUser = async (req, res) => {
 const updateUser = async (req, res) => {
     const { username, email } = req.body
     try {
-        const id = { _id: req.id }
-        await repository.updateUser()
+        const id = { _id: req.params.id }
+        if (username) await repository.updateUser(id, { $set: { username } })
+        if (email) await repository.updateUser(id, { $set: { email } })
+        res.json({ message: 'User updated successfully' })
     }
     catch (err) {
+        res.status(400).json({
+            message: 'Failed to update user',
+            error: err.message
+        })
+    }
+}
 
+const removeUser = async (req, res) => {
+    try {
+        await repository.removeUser({ _id: req.params.id })
+        res.json({ message: 'User deleted successfully' })
+    }
+    catch (err) {
+        res.status(400).json({ 
+            message: 'Failed to delete the user',
+            error: err.message
+        })
     }
 }
 
 module.exports = {
-    getAllUsers
+    getAllUsers,
+    getUserById,
+    createUser,
+    updateUser,
+    removeUser
 }
