@@ -24,6 +24,8 @@ app.set('view engine', 'handlebars')
 require('./routes/user')(app)
 require('./routes/auth')(app)
 
+// Routing the home endpoint
 app.get('/', (req, res) => { res.json({ message: 'Welcome to the Valle API' }) })
 
+// Running app
 app.listen(key.server.port, () => console.log('Server running!'))

@@ -23,10 +23,10 @@ const getUserById = async (req, res) => {
 
 const createUser = async (req, res) => {
     const { username, password, email } = req.body
-    const cryptpassword = bcrypt.hashSync(password)
+    const cryptpassword = bcrypt.hashSync(password) // Encrypting the password
     try {
         const user = await repository.createUser({ username, password: cryptpassword, email })
-        user.password = undefined
+        user.password = undefined // Hiding the password in response
         res.status(201).json({ 
             message: 'User created successfully',
             user

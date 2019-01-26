@@ -1,12 +1,12 @@
 module.exports = {
     jwt: {
-        secret: 'jx0tbchs20y4fsu6sb7y',
+        secret: 'jx0tbchs20y4fsu6sb7y', // Code to verify signature
         session: { session: false }
     },
-    mongodb: {
+    mongodb: { // Database hosted on Mlab
         mlab: 'mongodb://manfred:ellav19@ds211875.mlab.com:11875/valle'
     },
-    server: {
+    server: { // Setting port
         port: process.env.PORT || 8081
     }
 }
