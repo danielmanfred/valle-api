@@ -1,4 +1,6 @@
 # Valle Restful API
+Basic API application containing a CRUD of user collection and a JWT authentication.
+
 
 ## How to run this API
 
