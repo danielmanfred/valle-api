@@ -15,11 +15,8 @@
 - Restful concepts
 - MongoDB
 - Mongoose
-- Visual Studio Code
-- Postman
 - JWT
 - Mlab
-- GitHub
 - Babel
 
 ## Routes of the API

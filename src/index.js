@@ -1,11 +1,9 @@
 // Loading modules
-import express from 'express'
 import handlebars from 'express-handlebars'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import key from './config/keys'
-
-const app = express()
+import app from './app'
 
 // Conneting to the database
 mongoose.Promise = global.Promise
@@ -25,7 +23,7 @@ require('./routes/user')(app)
 require('./routes/auth')(app)
 
 // Routing the home endpoint
-app.get('/', (req, res) => { res.json({ message: 'Welcome to the Valle API' }) })
+app.get('/', (req, res) => { res.json({ message: 'Welcome to the Valle Test API' }) })
 
 // Running app
 app.listen(key.server.port, () => console.log('Server running!'))

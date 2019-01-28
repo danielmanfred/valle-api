@@ -6,7 +6,8 @@
   "scripts": {
     "start": "babel-node src/index.js",
     "local": "nodemon --exec babel-node src/index.js",
-    "test": "mocha --timeout 2000 --exit"
+    "test": "mocha --timeout 2000 --exit",
+    "test-integration": "mocha --opts tests/integration/mocha.opts test/integration/*.js"
   },
   "repository": {
     "type": "git",
@@ -27,16 +28,17 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
-    "chai": "^4.2.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "jsonwebtoken": "^8.4.0",
-    "mocha": "^5.2.0",
     "mongoose": "^5.4.6"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "supertest": "^3.4.2"
   },
   "apidoc": {
     "name": "example",
