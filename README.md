@@ -1,4 +1,4 @@
-# Valle Test Restful API
+# Valle Restful API
 
 ## How to run this API
 
